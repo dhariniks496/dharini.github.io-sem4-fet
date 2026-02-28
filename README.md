@@ -1,2 +1,15 @@
-# dharini.github.io-sem4-fet
-frontend technologies
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+  background-color: lightblue;
+}
+</style>
+</head>
+<body>
+
+<h1>Hello World</h1>
+
+</body>
+</html>
