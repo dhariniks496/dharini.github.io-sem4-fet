@@ -1,55 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Z-Index Example</title>
-  <style>
-    .box {
-      width: 150px;
-      height: 150px;
-      position: absolute;
-      color: white;
-      font-size: 20px;
-      text-align: center;
-      line-height: 150px;
-      cursor: pointer;
-    }
+    <title>Z-Index Layer Toggle</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 30px;
+        }
 
-    #box1 {
-      background: red;
-      top: 50px;
-      left: 50px;
-      z-index: 1;
-    }
+        h1 {
+            margin-bottom: 20px;
+        }
 
-    #box2 {
-      background: blue;
-      top: 100px;
-      left: 100px;
-      z-index: 2;
-    }
-  </style>
+        button {
+            padding: 8px 15px;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+
+        .container {
+            position: relative;
+            width: 400px;
+            height: 250px;
+            margin-top: 20px;
+        }
+
+        .layer {
+            position: absolute;
+            width: 300px;
+            height: 180px;
+            color: white;
+            font-size: 30px;
+            font-weight: bold;
+            text-align: center;
+            line-height: 180px;
+            border: 2px solid black;
+            transition: 0.3s;
+        }
+
+        #red {
+            background: tomato;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+
+        #blue {
+            background: royalblue;
+            top: 20px;
+            left: 20px;
+            z-index: 0;
+        }
+
+        #green {
+            background: seagreen;
+            top: 40px;
+            left: 40px;
+            z-index: 0;
+        }
+    </style>
 </head>
 <body>
 
-  <div id="box1" class="box">Box 1</div>
-  <div id="box2" class="box">Box 2</div>
+    <h1>Simple Layer Switcher</h1>
 
-  <script>
-    let highestZ = 2;
+    <button onclick="showLayer('red')">Show Red</button>
+    <button onclick="showLayer('blue')">Show Blue</button>
+    <button onclick="showLayer('green')">Show Green</button>
 
-    function bringToFront(element) {
-      highestZ++;
-      element.style.zIndex = highestZ;
-    }
+    <div class="container">
+        <div id="red" class="layer">LAYER 1 (Red)</div>
+        <div id="blue" class="layer">LAYER 2 (Blue)</div>
+        <div id="green" class="layer">LAYER 3 (Green)</div>
+    </div>
 
-    document.getElementById("box1").onclick = function () {
-      bringToFront(this);
-    };
+    <script>
+        function showLayer(color) {
+            document.getElementById("red").style.zIndex = 0;
+            document.getElementById("blue").style.zIndex = 0;
+            document.getElementById("green").style.zIndex = 0;
 
-    document.getElementById("box2").onclick = function () {
-      bringToFront(this);
-    };
-  </script>
+            document.getElementById(color).style.zIndex = 10;
+        }
+    </script>
 
 </body>
 </html>
