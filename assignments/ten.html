@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Z-Index Example</title>
+  <style>
+    .box {
+      width: 150px;
+      height: 150px;
+      position: absolute;
+      color: white;
+      font-size: 20px;
+      text-align: center;
+      line-height: 150px;
+      cursor: pointer;
+    }
+
+    #box1 {
+      background: red;
+      top: 50px;
+      left: 50px;
+      z-index: 1;
+    }
+
+    #box2 {
+      background: blue;
+      top: 100px;
+      left: 100px;
+      z-index: 2;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="box1" class="box">Box 1</div>
+  <div id="box2" class="box">Box 2</div>
+
+  <script>
+    let highestZ = 2;
+
+    function bringToFront(element) {
+      highestZ++;
+      element.style.zIndex = highestZ;
+    }
+
+    document.getElementById("box1").onclick = function () {
+      bringToFront(this);
+    };
+
+    document.getElementById("box2").onclick = function () {
+      bringToFront(this);
+    };
+  </script>
+
+</body>
+</html>
