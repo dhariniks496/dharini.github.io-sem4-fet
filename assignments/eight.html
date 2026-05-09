@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Developer Skills Quiz</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #0f172a;
+      color: white;
+      display: flex;
+      justify-content: center;
+      padding: 40px;
+    }
+
+    .quiz-container {
+      width: 700px;
+      background: #1e293b;
+      padding: 30px;
+      border-radius: 14px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.4);
+    }
+
+    h1 {
+      text-align: center;
+      color: #38bdf8;
+    }
+
+    .question {
+      margin: 25px 0;
+      padding: 20px;
+      background: #334155;
+      border-radius: 10px;
+    }
+
+    label {
+      display: block;
+      margin: 10px 0;
+      cursor: pointer;
+    }
+
+    textarea {
+      width: 100%;
+      height: 120px;
+      margin-top: 10px;
+      border-radius: 8px;
+      border: none;
+      padding: 10px;
+      resize: none;
+      font-size: 15px;
+    }
+
+    button {
+      background: #38bdf8;
+      color: black;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+
+    button:hover {
+      background: #0ea5e9;
+    }
+
+    .result {
+      margin-top: 25px;
+      padding: 20px;
+      background: #0f766e;
+      border-radius: 10px;
+      display: none;
+    }
+
+    .nav {
+      margin-top: 20px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .nav a {
+      color: #38bdf8;
+      text-decoration: none;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="quiz-container">
+    <h1>🧠 Developer Skills Quiz</h1>
+
+    <!-- Question 1 -->
+    <div class="question">
+      <h3>1. Which language is mainly used for backend development?</h3>
+
+      <label><input type="radio" name="q1" value="0"> HTML</label>
+      <label><input type="radio" name="q1" value="1"> Node.js</label>
+      <label><input type="radio" name="q1" value="0"> CSS</label>
+    </div>
+
+    <!-- Question 2 -->
+    <div class="question">
+      <h3>2. Which of these are JavaScript libraries/frameworks?</h3>
+
+      <label><input type="checkbox" class="q2" value="1"> React</label>
+      <label><input type="checkbox" class="q2" value="1"> Vue</label>
+      <label><input type="checkbox" class="q2" value="0"> MySQL</label>
+    </div>
+
+    <!-- Question 3 -->
+    <div class="question">
+      <h3>3. Give feedback on this code:</h3>
+
+<pre style="background:#0f172a; padding:10px; border-radius:8px;">
+function add(a,b){
+return a+b
+}
+</pre>
+
+      <textarea placeholder="Write your feedback here..."></textarea>
+    </div>
+
+    <button onclick="submitQuiz()">Submit Quiz</button>
+
+    <div class="result" id="result"></div>
+
+    <div class="nav">
+      <a href="#">⬅ Back</a>
+      <a href="#">🏠 Home</a>
+    </div>
+  </div>
+
+  <script>
+    function submitQuiz() {
+      let score = 0;
+
+      // Q1
+      const q1 = document.querySelector('input[name="q1"]:checked');
+      if (q1) {
+        score += Number(q1.value);
+      }
+
+      // Q2
+      const q2 = document.querySelectorAll('.q2:checked');
+      q2.forEach(item => {
+        score += Number(item.value);
+      });
+
+      const result = document.getElementById("result");
+
+      result.style.display = "block";
+      result.innerHTML = `
+        <h2>🎉 Quiz Submitted!</h2>
+        <p>Your Score: <strong>${score}/3</strong></p>
+      `;
+    }
+  </script>
+
+</body>
+</html>
