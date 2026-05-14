@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Question 10</title>
+
+  <style>
+
+    body{
+      font-family: Arial;
+      margin: 20px;
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+<h2>Course Selection</h2>
+
+<!-- Pull Down Menu -->
+<label>Select Department:</label>
+
+<select id="department" onchange="showDepartment()">
+
+  <option value="">--Select--</option>
+  <option>CSE</option>
+  <option>ISE</option>
+  <option>ECE</option>
+
+</select>
+
+<br><br>
+
+<!-- List Box -->
+<label>Select Skills:</label>
+
+<select id="skills" multiple size="4">
+
+  <option>HTML</option>
+  <option>CSS</option>
+  <option>JavaScript</option>
+  <option>React</option>
+
+</select>
+
+<br><br>
+
+<button id="btn">
+Show Selection
+</button>
+
+<h3 id="output"></h3>
+
+<script>
+
+function showDepartment(){
+
+  let dept =
+  document.getElementById("department").value;
+
+  alert("Selected Department: " + dept);
+
+}
+
+// EVENT LISTENER
+document.getElementById("btn")
+.addEventListener("click", function(){
+
+  let skills =
+  document.getElementById("skills");
+
+  let selected = "";
+
+  for(let i = 0; i < skills.options.length; i++){
+
+    if(skills.options[i].selected){
+
+      selected +=
+      skills.options[i].value + " ";
+
+    }
+  }
+
+  document.getElementById("output").innerHTML =
+
+  "Selected Skills: " + selected;
+
+});
+
+</script>
+
+</body>
+</html>
