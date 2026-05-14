@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Question 11</title>
+
+<style>
+
+body{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  margin-top:50px;
+  font-family:Arial;
+}
+
+.container{
+  position:relative;
+  width:250px;
+  height:250px;
+}
+
+.box{
+  width:200px;
+  height:200px;
+  position:absolute;
+  border-radius:10px;
+}
+
+#red{
+  background:red;
+  top:20px;
+  left:20px;
+  z-index:1;
+}
+
+#blue{
+  background:blue;
+  top:40px;
+  left:40px;
+  z-index:2;
+}
+
+#green{
+  background:green;
+  top:60px;
+  left:60px;
+  z-index:3;
+}
+
+button{
+  margin:5px;
+  padding:10px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h2>Z-Index Example</h2>
+
+<div>
+
+<button onclick="bringFront('red')">
+Red Front
+</button>
+
+<button onclick="bringFront('blue')">
+Blue Front
+</button>
+
+<button onclick="bringFront('green')">
+Green Front
+</button>
+
+</div>
+
+<br>
+
+<div class="container">
+
+<div id="red" class="box"></div>
+
+<div id="blue" class="box"></div>
+
+<div id="green" class="box"></div>
+
+</div>
+
+<script>
+
+let topLayer = 10;
+
+function bringFront(id){
+
+  let box =
+  document.getElementById(id);
+
+  topLayer++;
+
+  box.style.zIndex = topLayer;
+
+}
+
+</script>
+
+</body>
+</html>
