@@ -19,26 +19,26 @@
 
         function showMessage(){
 
-            // Alert box
             alert("Welcome to JavaScript!");
 
-            // Prompt box
-            let name = prompt("Enter your name:");
+            let name = "";
 
-            // Validation
-            if(name == "" || name == null){
+            // Keep asking until valid input is entered
+            while(name == "" || name == null){
 
-                alert("Name cannot be empty!");
+                name = prompt("Enter your name:");
 
+                if(name == "" || name == null){
+
+                    alert("Name cannot be empty!");
+
+                }
             }
-            else{
 
-                document.getElementById("demo").innerHTML =
-                "Hello " + name;
+            document.getElementById("demo").innerHTML =
+            "Hello " + name;
 
-                alert("Name updated successfully!");
-
-            }
+            alert("Name updated successfully!");
 
         }
 
