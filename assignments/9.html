@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>Form Elements with JavaScript</title>
+  <title>Question 9</title>
 
   <style>
     body{
@@ -15,4 +15,103 @@
       padding: 20px;
     }
 
-    legend
+    legend{
+      font-weight: bold;
+      color: darkblue;
+    }
+  </style>
+
+</head>
+
+<body>
+
+<h2>Job Application Form</h2>
+
+<form>
+
+<fieldset>
+
+<legend>Applicant Details</legend>
+
+<label>Name:</label>
+<br>
+<input type="text" id="name">
+<br><br>
+
+<label>Education:</label>
+<br>
+
+<select id="edu">
+  <option>CSE</option>
+  <option>AIML</option>
+  <option>IT</option>
+  <option>ECE</option>
+</select>
+
+<br><br>
+
+<label>Gender:</label>
+<br>
+
+<input type="radio" name="gender" value="Male"> Male
+<input type="radio" name="gender" value="Female"> Female
+
+<br><br>
+
+<label>Programming Languages:</label>
+<br>
+
+<input type="checkbox" class="lang" value="Python"> Python
+<input type="checkbox" class="lang" value="C"> C
+<input type="checkbox" class="lang" value="Java"> Java
+
+<br><br>
+
+<button type="button" onclick="showData()">
+Submit
+</button>
+
+</fieldset>
+
+</form>
+
+<h3 id="result"></h3>
+
+<script>
+
+function showData(){
+
+  let name =
+  document.getElementById("name").value;
+
+  let edu =
+  document.getElementById("edu").value;
+
+  let gender =
+  document.querySelector('input[name="gender"]:checked');
+
+  let langs =
+  document.querySelectorAll(".lang:checked");
+
+  let list = "";
+
+  // FOR LOOP
+  for(let i = 0; i < langs.length; i++){
+
+    list += langs[i].value + " ";
+
+  }
+
+  document.getElementById("result").innerHTML =
+
+  "Name: " + name +
+  "<br>Education: " + edu +
+  "<br>Gender: " + gender.value +
+  "<br>Languages: " + list;
+
+}
+
+</script>
+
+</body>
+</html>
