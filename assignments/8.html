@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Alert Prompt Validation</title>
+</head>
+
+<body>
+
+    <h1 id="demo">
+        Welcome Student
+    </h1>
+
+    <button onclick="showMessage()">
+        Click Me
+    </button>
+
+    <script>
+
+        function showMessage(){
+
+            // Alert box
+            alert("Welcome to JavaScript!");
+
+            // Prompt box
+            let name = prompt("Enter your name:");
+
+            // Validation
+            if(name == "" || name == null){
+
+                alert("Name cannot be empty!");
+
+            }
+            else{
+
+                document.getElementById("demo").innerHTML =
+                "Hello " + name;
+
+                alert("Name updated successfully!");
+
+            }
+
+        }
+
+    </script>
+
+</body>
+
+</html>
