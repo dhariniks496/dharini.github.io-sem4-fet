@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Alert and Prompt</title>
+</head>
+
+<body>
+
+    <h1 id="demo">
+        Welcome Student
+    </h1>
+
+    <button onclick="showMessage()">
+        Click Me
+    </button>
+
+    <script>
+
+        function showMessage(){
+
+            // Alert box
+            alert("Welcome to JavaScript!");
+
+            // Prompt box
+            let name = prompt("Enter your name:");
+
+            // Display entered name
+            document.getElementById("demo").innerHTML =
+            "Hello " + name;
+
+        }
+
+    </script>
+
+</body>
+
+</html>
