@@ -1,117 +1,103 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-  <title>Question 9</title>
+    <title>Dropdown and List Box</title>
 
-  <style>
-    body{
-      font-family: Arial;
-      margin: 20px;
-    }
+    <style>
+        body{
+            margin: 0;
+            height: 100vh;
 
-    fieldset{
-      width: 400px;
-      padding: 20px;
-    }
+            display: flex;
+            justify-content: center;
+            align-items: center;
 
-    legend{
-      font-weight: bold;
-      color: darkblue;
-    }
-  </style>
+            font-family: Arial;
 
+            background: linear-gradient(
+                to right,
+                rgb(50,180,190),
+                rgb(160,160,160)
+            );
+        }
+
+        .box{
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            width: 350px;
+            text-align: center;
+        }
+
+        select, button{
+            width: 100%;
+            padding: 8px;
+            margin-top: 10px;
+        }
+
+        #output{
+            margin-top: 15px;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+    </style>
 </head>
 
 <body>
 
-<h2>Job Application Form</h2>
+<div class="box">
 
-<form>
+    <h2>Menu Selection</h2>
 
-<fieldset>
+    <!-- Pull-down menu -->
+    <select id="menu" onchange="showMenu()">
+        <option value="">Select Branch</option>
+        <option value="CSE">CSE</option>
+        <option value="ISE">ISE</option>
+        <option value="AIML">AIML</option>
+    </select>
 
-<legend>Applicant Details</legend>
+    <!-- List box -->
+    <select id="list" size="4" multiple>
+        <option value="HTML">HTML</option>
+        <option value="CSS">CSS</option>
+        <option value="JavaScript">JavaScript</option>
+        <option value="Python">Python</option>
+    </select>
 
-<label>Name:</label>
-<br>
-<input type="text" id="name">
-<br><br>
+    <button id="btn">Show Selected</button>
 
-<label>Education:</label>
-<br>
+    <div id="output"></div>
 
-<select id="edu">
-  <option>CSE</option>
-  <option>AIML</option>
-  <option>IT</option>
-  <option>ECE</option>
-</select>
-
-<br><br>
-
-<label>Gender:</label>
-<br>
-
-<input type="radio" name="gender" value="Male"> Male
-<input type="radio" name="gender" value="Female"> Female
-
-<br><br>
-
-<label>Programming Languages:</label>
-<br>
-
-<input type="checkbox" class="lang" value="Python"> Python
-<input type="checkbox" class="lang" value="C"> C
-<input type="checkbox" class="lang" value="Java"> Java
-
-<br><br>
-
-<button type="button" onclick="showData()">
-Submit
-</button>
-
-</fieldset>
-
-</form>
-
-<h3 id="result"></h3>
+</div>
 
 <script>
 
-function showData(){
+    // Event Handler
+    function showMenu(){
+        let value = document.getElementById("menu").value;
+        document.getElementById("output").innerHTML =
+            "branch: " + value;
+    }
 
-  let name =
-  document.getElementById("name").value;
+    // Event Listener
+    document.getElementById("btn").addEventListener("click", function(){
 
-  let edu =
-  document.getElementById("edu").value;
+        let list = document.getElementById("list");
+        let result = [];
 
-  let gender =
-  document.querySelector('input[name="gender"]:checked');
+        for(let i=0; i<list.options.length; i++){
+            if(list.options[i].selected){
+                result.push(list.options[i].value);
+            }
+        }
 
-  let langs =
-  document.querySelectorAll(".lang:checked");
-
-  let list = "";
-
-  // FOR LOOP
-  for(let i = 0; i < langs.length; i++){
-
-    list += langs[i].value + " ";
-
-  }
-
-  document.getElementById("result").innerHTML =
-
-  "Name: " + name +
-  "<br>Education: " + edu +
-  "<br>Gender: " + gender.value +
-  "<br>Languages: " + list;
-
-}
+        document.getElementById("output").innerHTML +=
+            "<br>course: " + result.join(", ");
+    });
 
 </script>
 
 </body>
 </html>
+
