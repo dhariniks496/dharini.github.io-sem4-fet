@@ -1,111 +1,161 @@
-<!DOCTYPE html>
+
+  <!DOCTYPE html>
 <html>
-
 <head>
+    <title>Z-Index Layer Toggle</title>
 
-<title>Question 11</title>
+    <style>
 
-<style>
+        body{
+            background: linear-gradient(
+                to right,
+                rgb(50,180,190),
+                rgb(160,160,160)
+            );
+            margin: 0;
+            height: 100vh;
 
-body{
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  margin-top:50px;
-  font-family:Arial;
-}
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
-.container{
-  position:relative;
-  width:250px;
-  height:250px;
-}
+        /* Container */
+        .container {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background:   linear-gradient(to right,rgb(50,180,190),rgb(160,160,160));;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0,0,0,0.3);
+        }
 
-.box{
-  width:200px;
-  height:200px;
-  position:absolute;
-  border-radius:10px;
-}
+        h3{
+            text-align: center;
+        }
 
-#red{
-  background:red;
-  top:20px;
-  left:20px;
-  z-index:1;
-}
+        /* Content box */
+        .content-box {
+            position: relative;
+            width: 300px;
+            height: 150px;
+            margin-top: 15px;
+            border: 2px solid #333;
+            overflow: hidden;
+        }
 
-#blue{
-  background:blue;
-  top:40px;
-  left:40px;
-  z-index:2;
-}
+        /* Layers */
+        .layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: none;
 
-#green{
-  background:green;
-  top:60px;
-  left:60px;
-  z-index:3;
-}
+            color: black;
+            font-size: 22px;
+            font-weight: bold;
 
-button{
-  margin:5px;
-  padding:10px;
-}
+            align-items: center;
+            justify-content: center;
+        }
 
-</style>
+        /* Layer backgrounds using gradients */
 
+        #layer1 {
+            background: linear-gradient(
+                45deg,
+                rgb(255,99,71),
+                rgb(255,160,122)
+            );
+        }
+
+        #layer2 {
+            background: linear-gradient(
+                45deg,
+                rgb(30,144,255),
+                rgb(135,206,250)
+            );
+        }
+
+        #layer3 {
+            background: linear-gradient(
+                45deg,
+                rgb(60,179,113),
+                rgb(144,238,144)
+            );
+        }
+
+        /* Active layer */
+        .active {
+            display: flex !important;
+            z-index: 5;
+        }
+
+        /* Buttons */
+        button{
+            padding: 10px 15px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            background: rgb(0,0,0);
+            color: white;
+            transition: 0.3s;
+        }
+
+        button:hover{
+            background: rgb(30,150,160);
+            transform: scale(1.05);
+        }
+
+    </style>
 </head>
 
 <body>
 
-<h2>Z-Index Example</h2>
+    <div class="container">
 
-<div>
+        <h3>Simple Layer Switcher</h3>
 
-<button onclick="bringFront('red')">
-Red Front
-</button>
+        <button onclick="show('layer1')">Show Red</button>
+        <button onclick="show('layer2')">Show Blue</button>
+        <button onclick="show('layer3')">Show Green</button>
 
-<button onclick="bringFront('blue')">
-Blue Front
-</button>
+        <div class="content-box">
 
-<button onclick="bringFront('green')">
-Green Front
-</button>
+            <div id="layer1" class="layer active">
+                LAYER 1 (Red)
+            </div>
 
-</div>
+            <div id="layer2" class="layer">
+                LAYER 2 (Blue)
+            </div>
 
-<br>
+            <div id="layer3" class="layer">
+                LAYER 3 (Green)
+            </div>
 
-<div class="container">
+        </div>
+    </div>
 
-<div id="red" class="box"></div>
+    <script>
 
-<div id="blue" class="box"></div>
+        function show(id) {
 
-<div id="green" class="box"></div>
+            // Remove active class from all layers
+            let layers = document.getElementsByClassName('layer');
 
-</div>
+            for(let i = 0; i < layers.length; i++) {
+                layers[i].classList.remove('active');
+            }
 
-<script>
+            // Show selected layer
+            document.getElementById(id).classList.add('active');
+        }
 
-let topLayer = 10;
-
-function bringFront(id){
-
-  let box =
-  document.getElementById(id);
-
-  topLayer++;
-
-  box.style.zIndex = topLayer;
-
-}
-
-</script>
+    </script>
 
 </body>
 </html>
