@@ -1,28 +1,157 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-    <title>Assignment 12</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+
+<style>
+
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body{
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #667eea, #764ba2);
+    }
+
+    .container{
+        width: 360px;
+        padding: 35px;
+        background: #ffffff;
+        border-radius: 25px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+    }
+
+    h1{
+        color: #4c1d95;
+        font-family: 'Trebuchet MS', sans-serif;
+        letter-spacing: 1px;
+    }
+
+    #h3{
+        color: #374151;
+        text-align: center;
+        font-weight: 500;
+        font-family: 'Verdana', sans-serif;
+    }
+
+    button{
+        padding: 12px 26px;
+        border: none;
+        border-radius: 18px;
+        background: linear-gradient(135deg, #ff6a00, #ee0979);
+        color: white;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: 0.3s;
+        font-family: 'Segoe UI';
+    }
+
+    button:hover{
+        transform: scale(1.05);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+    }
+
+   
+    #h3{
+        background: #f3e8ff;
+        padding: 15px;
+        border-radius: 15px;
+        width: 100%;
+        border-left: 6px solid #7c3aed;
+    }
+
+    a{
+        text-decoration: none;
+        background: #4c1d95;
+        color: white;
+        padding: 10px 18px;
+        border-radius: 20px;
+        transition: 0.3s;
+        font-weight: bold;
+    }
+
+    a:hover{
+        background: #6d28d9;
+        transform: translateY(-2px);
+    }
+
+</style>
 </head>
 
 <body>
 
-    <h1>While Loop and Do While Loop</h1>
+<div class="container">
 
-    <button onclick="showWhileLoop()">
-        Show While Loop
-    </button>
+    <h1>System Login</h1>
 
-    <br><br>
+    <h3 id="h3">Enter the secret Key!!</h3>
 
-    <button onclick="showDoWhileLoop()">
-        Show Do While Loop
-    </button>
+    <button>Enter Password</button>
 
-    <h2 id="output"></h2>
+    <a href="https://dhariniks496.github.io/dharini.github.io-sem4-fet/index.html">Go to Home Page</a>
 
-    <script src="script_12.js"></script>
+</div>
+
+<script>
+
+    let btn=document.querySelector("button");
+    let h3=document.querySelector("#h3");
+
+    btn.addEventListener("click",()=>{
+
+        let start;
+
+        do{
+            start = prompt("Type YES to start login");
+        }while(start.toLowerCase() !== "yes");
+
+        alert("you have 3 attempts to enter the correct password");
+
+        let x=3;
+
+        while(x>0){
+
+            let password=prompt("Enter the password");
+        
+            if(password=="@HELLO"){
+                alert("Login successful!!");
+                h3.textContent="Login Successful!!";
+                h3.style.color="green";
+                btn.style.display="none";
+                break;
+            }
+            else{
+                x--;
+
+                if(x>0){
+                    alert(`Wrong password!! You have ${x} attempts left`);
+                }
+                else{
+                    alert("Login failed!! No attempts left");
+                    h3.textContent="Login Failed!!";
+                    h3.style.color="red";
+                    btn.style.display="none";
+                    break;
+                }
+            }
+        }
+    })
+
+</script>
 
 </body>
-
 </html>
