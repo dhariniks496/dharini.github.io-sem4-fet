@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login System</title>
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-family:Arial, sans-serif;
+    background:linear-gradient(to right,#141e30,#243b55);
+}
+
+.container{
+    width:350px;
+    padding:35px;
+    background:white;
+    border-radius:20px;
+    text-align:center;
+    box-shadow:0 10px 25px rgba(0,0,0,0.3);
+}
+
+h1{
+    color:#243b55;
+    margin-bottom:15px;
+}
+
+#status{
+    color:#555;
+    margin-bottom:20px;
+}
+
+input{
+    width:100%;
+    padding:12px;
+    border:1px solid #ccc;
+    border-radius:10px;
+    margin-bottom:20px;
+    font-size:16px;
+}
+
+button{
+    padding:12px 25px;
+    border:none;
+    border-radius:12px;
+    background:#243b55;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    transform:scale(1.05);
+}
+
+#attempts{
+    margin-top:15px;
+    color:#444;
+    font-weight:bold;
+}
+
+#homepage{
+    display:inline-block;
+    margin-top:20px;
+    padding:10px 20px;
+    background:#a9abd8;
+    border-radius:20px;
+    text-decoration:none;
+    color:black;
+}
+</style>
+</head>
+<body>
+<div class="container">
+    <h1>🔐 System Login</h1>
+    <h3 id="status">Enter Password</h3>
+    <input type="password" id="password" placeholder="Enter Password">
+    <button id="loginBtn">Login</button>
+    <p id="attempts">Attempts Left : 3</p>
+    <a id="homepage"href="https://dhariniks496/dharini.github.io-sem4-fet/">Home Page</a>
+</div>
+<script src="SK_while.js"></script>
+</body>
+</html>
