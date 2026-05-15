@@ -1,38 +1,28 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html> 
+<html> 
+<head> 
+<title>Technical Skills</title> 
+   <link rel="stylesheet" href="2.css">
+</head> 
+<body> 
 
-<head>
-    <title>Alert and Prompt</title>
-</head>
-
-<body>
-
-    <h1 id="demo">
-        Welcome Student
-    </h1>
-
-    <button onclick="showMessage()">
-        Click Me
-    </button>
-
-    <script>
-
-        function showMessage(){
-
-            // Alert box
-            alert("Welcome to JavaScript!");
-
-            // Prompt box
-            let name = prompt("Enter your name:");
-
-            // Display entered name
-            document.getElementById("demo").innerHTML =
-            "Hello " + name;
-
-        }
-
-    </script>
-
-</body>
-
+<h2>Technical Skill Matrix</h2> 
+<button onclick="addCategory()">Add Category</button>
+<button onclick="addSkill()">Add Skill</button>
+<ol> 
+  <li> <strong>Software Development</strong> 
+    <ul> 
+      <li>C</li> 
+      <li>Java</li> 
+      <li>Python</li> 
+    </ul> 
+  </li> 
+  <li> <strong>Database Systems</strong> 
+    <ul> 
+      <li>SQL</li> 
+    </ul> 
+  </li> 
+</ol> 
+<script src="2.js"></script>
+</body> 
 </html>
