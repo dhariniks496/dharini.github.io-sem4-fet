@@ -1,157 +1,201 @@
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Document</title>
+
+<title>Secure Login</title>
 
 <style>
 
-    *{
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-    body{
-        height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        background: linear-gradient(135deg, #667eea, #764ba2);
-    }
+body{
 
-    .container{
-        width: 360px;
-        padding: 35px;
-        background: #ffffff;
-        border-radius: 25px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 20px;
-        box-shadow: 0 15px 35px rgba(0,0,0,0.25);
-    }
+    height:100vh;
 
-    h1{
-        color: #4c1d95;
-        font-family: 'Trebuchet MS', sans-serif;
-        letter-spacing: 1px;
-    }
+    display:flex;
+    justify-content:center;
+    align-items:center;
 
-    #h3{
-        color: #374151;
-        text-align: center;
-        font-weight: 500;
-        font-family: 'Verdana', sans-serif;
-    }
+    font-family:Arial,sans-serif;
 
-    button{
-        padding: 12px 26px;
-        border: none;
-        border-radius: 18px;
-        background: linear-gradient(135deg, #ff6a00, #ee0979);
-        color: white;
-        font-size: 16px;
-        font-weight: bold;
-        cursor: pointer;
-        transition: 0.3s;
-        font-family: 'Segoe UI';
-    }
+    background:linear-gradient(
+        to right,
+        #1e293b,
+        #334155
+    );
 
-    button:hover{
-        transform: scale(1.05);
-        box-shadow: 0 8px 20px rgba(0,0,0,0.25);
-    }
+    overflow:hidden;
+}
 
-   
-    #h3{
-        background: #f3e8ff;
-        padding: 15px;
-        border-radius: 15px;
-        width: 100%;
-        border-left: 6px solid #7c3aed;
-    }
+.container{
 
-    a{
-        text-decoration: none;
-        background: #4c1d95;
-        color: white;
-        padding: 10px 18px;
-        border-radius: 20px;
-        transition: 0.3s;
-        font-weight: bold;
-    }
+    width:90%;
+    max-width:450px;
 
-    a:hover{
-        background: #6d28d9;
-        transform: translateY(-2px);
-    }
+    padding:45px;
+
+    border-radius:25px;
+
+    background:rgba(255,255,255,0.08);
+
+    backdrop-filter:blur(10px);
+
+    border:1px solid rgba(255,255,255,0.1);
+
+    text-align:center;
+
+    color:white;
+
+    box-shadow:0 8px 25px rgba(0,0,0,0.4);
+}
+
+h1{
+    font-size:42px;
+    margin-bottom:12px;
+}
+
+#status{
+
+    color:#cbd5e1;
+
+    margin-bottom:25px;
+
+    font-size:20px;
+}
+
+input{
+
+    width:100%;
+
+    padding:16px;
+
+    border:none;
+
+    outline:none;
+
+    border-radius:12px;
+
+    font-size:18px;
+
+    margin-bottom:22px;
+
+    background:rgba(255,255,255,0.08);
+
+    color:white;
+}
+
+input::placeholder{
+    color:#94a3b8;
+}
+
+button{
+
+    width:100%;
+
+    padding:16px;
+
+    border:none;
+
+    border-radius:12px;
+
+    font-size:18px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    background:#0f172a;
+
+    color:#f8fafc;
+
+    transition:0.3s;
+}
+
+button:hover{
+    background:#2563eb;
+}
+
+#attempts{
+
+    margin-top:20px;
+
+    font-size:18px;
+
+    color:#e2e8f0;
+}
+
+#homepage{
+
+    display:inline-block;
+
+    margin-top:22px;
+
+    padding:12px 22px;
+
+    border-radius:12px;
+
+    text-decoration:none;
+
+    background:#7c3aed;
+
+    color:white;
+
+    transition:0.3s;
+}
+
+#homepage:hover{
+    background:#9333ea;
+}
 
 </style>
+
 </head>
 
 <body>
 
 <div class="container">
 
-    <h1>System Login</h1>
+    <h1>Secure Login</h1>
 
-    <h3 id="h3">Enter the secret Key!!</h3>
+    <h3 id="status">
+        Enter Password
+    </h3>
 
-    <button>Enter Password</button>
+    <input
+    type="password"
+    id="password"
+    placeholder="Enter Password">
 
-    <a href="https://dhariniks496.github.io/dharini.github.io-sem4-fet/index.html">Go to Home Page</a>
+    <button id="loginBtn">
+        Login
+    </button>
+
+    <p id="attempts">
+        Attempts Left : 3
+    </p>
+
+    <a
+    id="homepage"
+    href="https://dhariniks496.github.io/dharini.github.io-sem4-fet/index.html">
+
+        Home Page
+
+    </a>
 
 </div>
 
-<script>
-
-    let btn=document.querySelector("button");
-    let h3=document.querySelector("#h3");
-
-    btn.addEventListener("click",()=>{
-
-        let start;
-
-        do{
-            start = prompt("Type YES to start login");
-        }while(start.toLowerCase() !== "yes");
-
-        alert("you have 3 attempts to enter the correct password");
-
-        let x=3;
-
-        while(x>0){
-
-            let password=prompt("Enter the password");
-        
-            if(password=="@HELLO"){
-                alert("Login successful!!");
-                h3.textContent="Login Successful!!";
-                h3.style.color="green";
-                btn.style.display="none";
-                break;
-            }
-            else{
-                x--;
-
-                if(x>0){
-                    alert(`Wrong password!! You have ${x} attempts left`);
-                }
-                else{
-                    alert("Login failed!! No attempts left");
-                    h3.textContent="Login Failed!!";
-                    h3.style.color="red";
-                    btn.style.display="none";
-                    break;
-                }
-            }
-        }
-    })
-
-</script>
+<script src = "12.js"></script>
 
 </body>
+
 </html>
